@@ -1,0 +1,142 @@
+/* Style for navigation bar */
+body {
+    background-image: url('../images/secondBackground-blue.jpg');
+    background-color: #f2f2f2;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    background-position: top;
+    font-family: "Exo";
+    background-attachment: fixed; /* Added this line */
+}
+
+header {
+    background: repeating-linear-gradient(-45deg, #002daa, #3b3b3b, #002daa, #3b3b3b);
+    background-repeat: repeat-x;
+    background-size: 600% 100%;
+    animation: gradient 100s linear infinite;
+    padding: 10px;
+    height: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(10px + 1vh);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 5vw;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav .index {
+    font-family: "ExoBold"
+}
+
+
+/* Style for the title */
+.title {
+    font-family: "BigJohnReg";
+    text-align: center;
+    font-size: 4vw;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Style for horizontal list */
+
+/* Style for image container */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Style for image grid */
+.image-grid {
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute items evenly with maximum of 3 columns */
+  gap: 2vw;
+  max-width: 70%;
+  margin-bottom: 100px;
+}
+
+.image-grid img {
+    max-width: 40%;
+    min-width: 100%;
+    height: auto;
+    margin-bottom: 0px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.7);
+
+    border-radius: 10px;
+}
+
+.image-grid img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1.4vw rgba(0, 0, 0, 1);
+}
+.image-item {
+    position: relative;
+    flex-basis: calc(33.333% - 2vw); /* Set the basis for each image item to 33.333% minus the gap */
+  }
+  @media screen and (max-width: 1150px) {
+    .image-item {
+      flex-basis: calc(50% - 2vw); /* Set 2 columns when screen size is less than 1200px */
+    }
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1.6vw;
+    font-family: "ExoBold";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    pointer-events: none; 
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .image-item:hover .overlay {
+    opacity: 1;
+    transform: scale(1.1);
+  } 

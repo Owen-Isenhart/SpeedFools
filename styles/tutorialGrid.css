@@ -1,0 +1,228 @@
+/* Style for navigation bar */
+body {
+    background-image: url('../images/secondBackground-red.jpg');
+    background-color: #f2f2f2;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    background-position: top;
+    font-family: "Exo";
+
+}
+
+header {
+    background: repeating-linear-gradient(-45deg, #e93838, #3b3b3b, #e93838, #3b3b3b);
+    background-repeat: repeat-x;
+    background-size: 600% 100%;
+    animation: gradient 100s linear infinite;
+    padding: 10px;
+    height: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(10px + 1vh);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 5vw;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+nav .index{
+    font-family: "ExoBold";
+}
+
+/* Style for the title */
+.title {
+    text-align: center;
+    font-size: 4vw;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-family: "BigJohnReg";
+}
+
+/* Style for horizontal list */
+.horizontal-list {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.horizontal-list button {
+    margin-right: 1vw;
+    margin-left: 1vw;
+    width: auto;
+    /* Change width to auto to fit the text on one line */
+    background-color: rgb(172, 0, 0);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: transform 0.2s ease;
+}
+
+.horizontal-list button:hover {
+    background-color: rgb(128, 0, 0);
+    box-shadow: 0 0 .5vw rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* Add these styles for the selected button */
+.horizontal-list button.selected {
+    background-color: rgb(233, 177, 35);
+    box-shadow: 0 0 .5vw rgba(0, 0, 0, 0.5);
+    color: #292929;
+}
+
+.horizontal-list button.selected:hover {
+    background-color: darkgoldenrod;
+    box-shadow: 0 0 .5vw rgba(0, 0, 0, 0.8);
+    color: #000000;
+}
+
+/* Style for vertical list */
+.vertical-list {
+    margin-top: 0px;
+    /* margin-right: 20px; */
+    /* Added margin-right to create space between the list and grid */
+    align-self: flex-start;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.vertical-list button {
+    display: block;
+    width: 80px;
+    margin-bottom: 1vw;
+    width: auto;
+    background-color: #002daa;
+    /* Semi-dark blue color */
+    transition: transform 0.2s ease;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
+.vertical-list button:hover {
+    background-color: #001f74;
+    box-shadow: 0 0 .5vw rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    /* Darker shade on hover */
+}
+
+/* Add these styles for the selected button */
+.vertical-list button.selected {
+    background-color: rgb(24, 216, 24);
+    box-shadow: 0 0 .5vw rgba(0, 0, 0, 0.5);
+    /* Light blue color for selected button */
+    color: #181818;
+}
+
+.vertical-list button.selected:hover {
+    background-color: rgb(14, 170, 14);
+    box-shadow: 0 0 .5vw rgba(0, 0, 0, 0.8);
+    /* Darker shade on hover for selected button */
+}
+
+/* Style for image container */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+}
+
+/* Style for image grid */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2vw;
+    margin-right: calc(1.5vw + 105px);
+    max-width: 70%;
+    margin-bottom: 100px;
+}
+
+.image-grid img {
+    max-width: 30%;
+    min-width: 100%;
+    height: auto;
+    margin-bottom: 0px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.7);
+
+    border-radius: 10px;
+}
+
+.image-grid img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1.4vw rgba(0, 0, 0, 1);
+}
+.image-item {
+    position: relative;
+    max-width: 30%;
+    min-width: 200px;
+    height: auto;
+    margin-bottom: 0px;
+    border-radius: 10px;
+}
+
+/* Styles for the overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 98%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1.4vw;
+    font-family: "ExoBold";
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    pointer-events: none; 
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .overlay p{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .image-item:hover .overlay {
+    opacity: 1;
+    transform: scale(1.1);
+  } 

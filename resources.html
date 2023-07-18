@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Super Mario 64 Speedrunning">
+    <meta name="keywords" content="SM64, Super Mario 64, Speedrun">
+    <title>SpeedFools - Resources</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/resources.css">
+
+    <script>
+        // JavaScript for toggling the dropdown content
+        window.addEventListener('DOMContentLoaded', function () {
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            dropdowns.forEach(function (dropdown) {
+                const content = dropdown.querySelector('.dropdown-content');
+                const originalMargin = getComputedStyle(dropdown).marginBottom;
+
+                dropdown.addEventListener('click', function (event) {
+                    // Check if the cursor is 'pointer' before toggling the dropdown
+                    if (getComputedStyle(event.target).cursor === 'pointer') {
+                        // Close any open dropdowns except the clicked one
+                        dropdowns.forEach(function (otherDropdown) {
+                            const otherContent = otherDropdown.querySelector('.dropdown-content');
+                            if (otherDropdown !== dropdown && otherContent.style.display === 'block') {
+                                otherContent.style.display = 'none';
+                                otherDropdown.style.marginBottom = originalMargin;
+                                otherDropdown.classList.remove('open');
+                            }
+                        });
+
+                        // Toggle the display of the clicked dropdown content
+                        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+
+                        // Adjust the position and height of the clicked dropdown
+                        if (content.style.display === 'block') {
+                            const dropdownHeight = dropdown.offsetHeight;
+                            content.style.height = 'auto';
+                            const contentHeight = content.offsetHeight;
+                            const totalHeight = dropdownHeight + contentHeight;
+                            dropdown.style.marginBottom = `calc(${totalHeight}px - ${dropdownHeight}px)`;
+                            dropdown.classList.add('open');
+                        } else {
+                            dropdown.style.marginBottom = originalMargin;
+                            dropdown.classList.remove('open');
+                        }
+
+                        // Prevent event propagation to the dropdown content
+                        event.stopPropagation();
+                    }
+                });
+
+                // Close the dropdown when clicking outside of it
+                document.addEventListener('click', function (event) {
+                    const openDropdown = document.querySelector('.dropdown.open');
+                    if (openDropdown) {
+                        const openContent = openDropdown.querySelector('.dropdown-content');
+                        if (openContent && !openContent.contains(event.target)) {
+                            openContent.style.display = 'none';
+                            openDropdown.style.marginBottom = originalMargin;
+                            openDropdown.classList.remove('open');
+                        }
+                    }
+                });
+            });
+
+            // Update dropdown positions when the window is resized
+            window.addEventListener('resize', function () {
+                dropdowns.forEach(function (dropdown) {
+                    if (dropdown.classList.contains('open')) {
+                        const content = dropdown.querySelector('.dropdown-content');
+                        const originalMargin = getComputedStyle(dropdown).marginBottom;
+                        const dropdownHeight = dropdown.offsetHeight;
+                        content.style.height = 'auto';
+                        const contentHeight = content.offsetHeight;
+                        const totalHeight = dropdownHeight + contentHeight;
+                        dropdown.style.marginBottom = `calc(${totalHeight}px - ${dropdownHeight}px)`;
+                    }
+                });
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resources.html" class="index">Resources</a></li>
+                <li><a href="tutorialGrid.html">Tutorials</a></li>
+                <li><a href="mechanics.html">Mechanics</a></li>
+                <li><a href="credit.html">Credit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+
+
+        <h1 class="title">RESOURCES</h1>
+
+
+
+        <div class="dropdown">
+            <h3>How can I play on Emulator? <span>▼</span></h3>
+            <div class="dropdown-content">
+                <p>
+                    Go <a href="https://wermi.neocities.org/emuguide/getting_emu/#download" target="_blank"
+                        rel="noopener noreferrer">here</a> to download and setup the 1.6.1 version of the Project64
+                    emulator.
+                    Then, legally obtain a ROM of Super Mario 64. Generally, you'll want to use a Japanese copy for
+                    every category except for 70 star. To record your game, you'll want a recording software such as <a
+                        href="https://obsproject.com/download" target="_blank" rel="noopener noreferrer">obs</a>.
+                    For a more in-depth description for the optimized emulator setup, <a
+                        href="https://wermi.neocities.org/emuguide/" target="_blank" rel="noopener noreferrer">click
+                        here</a>. <br>
+                    <br>If you do not already have a controller, the most recomended way is to buy an n64 controller or a hori, and then a <a
+                        href="https://www.raphnet-tech.com/products/n64_usb_adapter_gen3/index.php" target="_blank"
+                        rel="noopener noreferrer">raphnet adapter</a> to convert to USB. There are many places to find
+                    reliable N64 and hori controllers, but one of the most trusted places is the SM64 discord's
+                    marketplace. A link to the discord can be found in the "How can I get involved with the community"
+                    dropdown. 
+                    
+
+                </p>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <h3>How can I play on N64? <span>▼</span></h3>
+            <div class="dropdown-content">
+                <p>
+                    For buying an N64, look on sites like Facebook Marketplace, ebay, or the SM64 discord, the link to
+                    which can be found in the "How can I get involved with the community" dropdown.
+                    If possible, try to find a "region free" N64, which will allow you to play both NTCS and JPN cartridges. For recording your game, you'll need
+                    a capture card such as the <a
+                        href="https://www.amazon.com/DATA-connection-video-capture-GV-USB2/dp/B00428BF1Y"
+                        target="_blank" rel="noopener noreferrer">GV-USB2</a>.
+                    <br><br>
+                    Many people play on CRT
+                    TVs, and they're one of the best options if you can find one at a good price. Typically, they aren't
+                    too hard to find looking on local marketplaces, but as they get harder to find, you may opt for a more modern option, such as the <a
+                        href="https://www.retrotink.com/" target="_blank" rel="noopener noreferrer">RetroTINK</a>, which
+                    allow connection to modern monitors and TVs.
+                    Lastly, for a controller you'll want to look on the SM64 discord, or ebay from a reputable seller.
+                </p>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <h3>How can I practice? <span>▼</span></h3>
+            <div class="dropdown-content">
+                <p>
+                    The best way to practice is using the <a
+                        href="https://sites.google.com/view/supermario64/usamunepj/usamunerom" target="_blank"
+                        rel="noopener noreferrer">Usamune ROM</a>.
+                    For emulator, you'll want to just follow the setup guide on the site.<br>
+                    For N64, you'll either need an <a href="https://krikzz.com/" target="_blank"
+                        rel="noopener noreferrer">EverDrive-64</a> or a <a href="http://64drive.retroactive.be/"
+                        target="_blank" rel="noopener noreferrer">64drive</a>, or you could buy a Usamune ROM cartridge
+                    directly from a site like <a href="https://www.vintex64.com/store/p259/SM64_-_USAMUNE_Project.html"
+                        target="_blank" rel="noopener noreferrer">Vintex64</a>.
+                    The EverDrive-64 and 64drive can be used for a lot more than just Usamune, so if you plan on playing
+                    other games this is the recomended option. However, if you only plan on playing SM64 and are looking
+                    for a lower cost option, buying the Cartridge directly is a much more cost-effective option.
+                </p>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <h3>Where can learn more? <span>▼</span></h3>
+            <div class="dropdown-content">
+                <p>
+                    <a href="https://ukikipedia.net/wiki/Main_Page" target="_blank"
+                        rel="noopener noreferrer">Ukikipedia</a> is home to a vast amount of information regarding Super
+                    Mario 64. This website was created to further the amount of easily accesible tutorials and
+                    information for SM64 in a modern way, as well as provide different strats and a unique perspective
+                    for some parts of the game. However, as this is a one man project, some sacrifices had to be made in
+                    the development of this website, meaning some information was lost to speed up development. As such,
+                    I still highly reccomend Ukikipedia for very in-depth explanations, different routes, categories,
+                    and more.
+                </p>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <h3>How do I time and submit my runs? <span>▼</span></h3>
+            <div class="dropdown-content">
+                <p>
+                    To time your runs, download <a href="https://livesplit.org" target="_blank"
+                        rel="noopener noreferrer">LiveSplit</a> and setup your splits, tutorials and an FAQ can be found
+                    on their website.
+                    While not needed, many runners prefer to use an autosplitter rather than manually splitting. If
+                    you'd like to try it out, go <a href="https://github.com/LiveSplit/LiveSplit.AutoSplitters"
+                        target="_blank" rel="noopener noreferrer">here</a> and follow the guide on the README.
+                    <br><br>
+                    To submit your runs, you'll upload them to <a
+                        href="https://www.speedrun.com/sm64?h=120_Star-N64&x=wkpoo02r-e8m7em86.9qj7z0oq" target="_blank"
+                        rel="noopener noreferrer">Speedrun.com</a>. Make sure you read and follow the rules for
+                    recording, playing, and submitting your game.
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="dropdown">
+            <h3>How can I get involved with the community? <span>▼</span></h3>
+            <div class="dropdown-content">
+                <p>
+                    The best way to get involved with the community is the <a href="https://discord.com/invite/sm64"
+                        target="_blank" rel="noopener noreferrer">SM64 discord</a>. You'll find everything you need
+                    there, including some great people that will welcome you with open arms.
+                    <br>Other ways include supporing and interacting with top runners on Twitch, getting involved with
+                    the TAS community, and more.
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

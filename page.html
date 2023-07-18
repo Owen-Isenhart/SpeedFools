@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Super Mario 64 Speedrunning">
+  <meta name="keywords" content="SM64, Super Mario 64, Speedrun">
+  <title id="page-title"></title>
+  <script>
+    var pageTitle = decodeURIComponent(location.search).split('alt=')[1];
+    pageTitle = pageTitle.split('&')[0]; // Extract alt text only
+    document.getElementById('page-title').innerText = 'SpeedFools - ' + pageTitle;
+  </script>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/page.css">
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="tutorialGrid.html" class="index">Tutorials</a></li>
+        <li><a href="mechanics.html">Mechanics</a></li>
+        <li><a href="credit.html">Credit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page content -->
+  <div class="page-container">
+    <!-- Title (retrieved from alt property of the image) -->
+    <h1 class="page-title" id="videoTitle">
+      <!-- JavaScript to retrieve alt property of the image -->
+      <script>
+        var altText = decodeURIComponent(location.search).split('alt=')[1];
+        altText = altText.split('&')[0]; // Extract alt text only
+        document.write(altText);
+      </script>
+    </h1>
+
+    <!-- Video container -->
+    <div class="video-container">
+
+      <video id="videoPlayer" controls autoplay>
+        <!-- JavaScript to retrieve video source from query parameter -->
+        <script>
+          var videoSrc;
+          if (decodeURIComponent(location.search).split('&diff=')[1] === 'Mechanics') {
+            var videoSrc = 'videos/' + decodeURIComponent(location.search).split('&diff=')[1] + '/' + decodeURIComponent(location.search).split('&video=')[1].replace('&diff=Mechanics', '') + '.mp4';
+          }
+          else {
+            var videoSrc = 'videos/' + decodeURIComponent(location.search).split('&diff=')[1] + '/' + decodeURIComponent(location.search).split('&video=')[1].replace('&diff=', '') + '.mp4';
+          }
+
+          console.log(videoSrc);
+          document.write('<source src="' + videoSrc + '" type="video/mp4">');
+        </script>
+      </video>
+    </div>
+
+    <!-- Image container -->
+    <div class="image-container">
+      <img src="images/previousIcon.png" alt="Previous Image" onclick="playPreviousVideo()">
+      <img src="images/nextIcon.jpg" alt="Next Image" onclick="playNextVideo()">
+    </div>
+
+    <!-- Video description -->
+    <div class="video-description" id="videoDescription"></div>
+  </div>
+  <script>
+    // Assuming you have an array of video sources
+    var noLBLJ = [
+      [
+        'lakituSkip',
+        'chainChomp',
+        'cannonless',
+        'owless',
+        'wildBlue',
+        'whomp',
+        'tower',
+        'penguin',
+        'wallkicks',
+        'dwReds',
+        'bowser1',
+        'talon',
+        'pyramid',
+        'lllReds',
+        'logless',
+        'hmc',
+        'mips',
+        'ddd',
+        'firesea',
+        'bowser2',
+        'bits',
+        'bowser3',
+        'rocks'
+      ],
+      [
+        'Lakitu Skip',
+        'Behind Chain Chomp’s Gate',
+        'Blast Away the Wall',
+        'Fall onto the Caged Island',
+        'Shoot into the Wild Blue',
+        'Chip off Whomp’s Block',
+        'To the Top of the Fortress',
+        'Li’l Penguin Lost',
+        'Wall Kicks will Work',
+        'Bowser in the Dark World Red Coins',
+        'Bowser in the Dark World Fight',
+        'In the Talons of the Big Bird',
+        'Shining Atop the Pyramid',
+        '8-Coin Puzzle with 15 Pieces',
+        'Red-Hot Log Rolling',
+        'A-Maze-ing Emergency Exit',
+        'Mips Clip',
+        'Board Bowser’s Sub',
+        'Bowser in the Fire Sea',
+        'Bowser in the Fire Sea Fight',
+        'Bowser in the Sky',
+        'Bowser in the Sky Fight',
+        'Watch for the Rolling Rocks'
+      ],
+      [
+        'images/lakSkipImg.jpg',
+        'images/chainChompImg.jpg',
+        'images/cannonlessImg.jpg',
+        'images/owlessImg.jpg',
+        'images/wildBlueImg.jpg',
+        'images/whompImg.jpg',
+        'images/towerImg.jpg',
+        'images/penguinImg.jpg',
+        'images/wallkicksImg.jpg',
+        'images/dwImg.jpg',
+        'images/dwFight.jpg',
+        'images/talonImg.jpg',
+        'images/pyramidImg.jpg',
+        'images/lllRedsImg.jpg',
+        'images/logImg.jpg',
+        'images/hmcImg.jpg',
+        'images/mipsImg.jpg',
+        'images/dddImg.jpg',
+        'images/fireseaImg.jpg',
+        'images/fireseaFightImg.jpg',
+        'images/bitsImg.jpg',
+        'images/bitsFightImg.jpg',
+        'images/hmcRocks.jpg'
+      ]
+    ];
+    var LBLJ = [
+      [
+        'lakituSkip',
+        'lblj',
+        'dwReds',
+        'bowser1',
+        'cannonless',
+        'owless',
+        'wildBlue',
+        'pillarless',
+        'talon',
+        'pyramid',
+        'lllReds',
+        'logless',
+        'bully',
+        'lavaboost',
+        'beast',
+        'rocks',
+        'hmc',
+        'mips',
+        'ddd',
+        'firesea',
+        'bowser2',
+        'bits',
+        'bowser3',
+        'elevator'
+      ],
+      [
+        'Lakitu Skip',
+        'LBLJ',
+        'Bowser in the Dark World Red Coins',
+        'Bowser in the Dark World Fight',
+        'Blast Away the Wall',
+        'Fall onto the Caged Island',
+        'Shoot into the Wild Blue',
+        'Inside the Ancient Pyramid',
+        'In the Talons of the Big Bird',
+        'Shining Atop the Pyramid',
+        '8-Coin Puzzle with 15 Pieces',
+        'Red-Hot Log Rolling',
+        'Boil the Big Bully',
+        'Hot-Foot-It into the Volcano',
+        'Swimming Beast in the Cavern',
+        'Watch for Rolling Rocks',
+        'A-Maze-ing Emergency Exit',
+        'MIPS Clip',
+        'Board Bowser’s Sub',
+        'Bowser in the Fire Sea',
+        'Bowser in the Fire Sea Fight',
+        'Bowser in the Sky',
+        'Bowser in the Sky Fight',
+        'Elevator Tour in the Volcano'
+      ],
+      [
+        'images/lakSkipImg.jpg',
+        'images/lobby.jpg',
+        'images/dwImg.jpg',
+        'images/dwFight.jpg',
+        'images/cannonlessImg.jpg',
+        'images/owlessImg.jpg',
+        'images/wildBlueImg.jpg',
+        'images/pillarless.jpg',
+        'images/talonImg.jpg',
+        'images/pyramidImg.jpg',
+        'images/lllRedsImg.jpg',
+        'images/logImg.jpg',
+        'images/bully.jpg',
+        'images/lavaboost.jpg',
+        'images/beast.jpg',
+        'images/hmcRocks.jpg',
+        'images/hmcImg.jpg',
+        'images/mipsImg.jpg',
+        'images/dddImg.jpg',
+        'images/fireseaImg.jpg',
+        'images/fireseaFightImg.jpg',
+        'images/bitsImg.jpg',
+        'images/bitsFightImg.jpg',
+        'images/elevator.jpg'
+      ]
+    ];
+    var oneStar = [
+      [
+        'lakituSkip',
+        'lblj',
+        'dwNoReds',
+        'bowser1',
+        'sblj',
+        'ddd',
+        'firesea',
+        'bowser2',
+        'bits',
+        'bowser3'
+      ],
+      [
+        'Lakitu Skip',
+        'LBLJ',
+        'Bowser in the Dark World No Reds',
+        'Bowser in the Dark World Fight',
+        'SBLJ',
+        'Board Bowser’s Sub',
+        'Bowser in the Fire Sea',
+        'Bowser in the Fire Sea Fight',
+        'Bowser in the Sky',
+        'Bowser in the Sky Fight'
+      ],
+      [
+        'images/lakSkipImg.jpg',
+        'images/lobby.jpg',
+        'images/dwImg.jpg',
+        'images/dwFight.jpg',
+        'images/sblj.jpg',
+        'images/dddImg.jpg',
+        'images/fireseaImg.jpg',
+        'images/fireseaFightImg.jpg',
+        'images/bitsImg.jpg',
+        'images/bitsFightImg.jpg'
+      ]
+    ];
+    var mechs = [
+      [
+        'speedkicks',
+        'wallkicks',
+        'bljs',
+        'lagReduction',
+        'dust',
+        'zDive'
+      ],
+      [
+        'Speed Kicks',
+        'Wallkicks',
+        'Backwards Long Jumps',
+        'Lag Reduction / Camera',
+        'Dust',
+        'Z Dives'
+      ],
+      [
+        'images/speedKickScreenshot.png',
+        'images/wallkickScreenshot.png',
+        'images/bljScreenshot.png',
+        'images/lagScreenshot.png',
+        'images/dustScreenshot.png',
+        'images/zDiveScreenshot.png'
+      ]
+    ];
+
+    var descriptions = [
+      'Lakitu Skip:\n\nBeginner & Intermediate - This method of lakitu skip is fairly straightforward. Start with a kick and run a little further, and then longjump with the stick still straight, before quickly moving it to the top-left notch. You can choose whether or not you prefer the cam to be C-Down or not, but typically C-Down allows you to see more, thus allowing an easier time lining up the trick. The next 2 longjumps should then be done at a top-left notched angle, until you reach the bridge. Make sure to land as far to the left as you can on the bridge, and then you can resume the top-left notched angle. This trick is not very percise, so feel free to change it up however you feel makes it most comfortable and consistent. \n\nAdvanced - This method saves roughly 0.3s over the intermediate and beginner strat. Start with a longjump and quickly press C-Left while changing your angle to in-between the up and top-left notches. Do another longjump with this same angle, and press C-Down while in the air. Then, do two jumpdives holding straight forward. Depending on your angle when you get to the bridge, you may have to strain left as depicted in the video. The speedkick at the end is not necessary, but if you feel comfortable with it, it is much faster.',
+      'Behind Chain Chomp’s Gate:\n\nBeginner & Intermediate - As soon as you load into the stage, quickly press C-Right followed by C-Left + C-Down, and then another C-Left. This will reduce lag and set up an angle in which you can hold straight foward. Then, do one longjump followed by 3 jumpdives, pressing C-Right while in the air during the third jumpdive. Longjump across the gap towards the bobomb, and go neutral after landing so you can press B to grab while carrying momentum. Do two jumps with a top-left notched angle, and throw the bobomb at the start of the second jump. Quickly face backwards and grab the bomb, and then press C-Left and slightly move the stick down after you begin moving with the bomb. Once you reach the gate, throw the bomb and collect the star.\n\nAdvanced - This follows the same process up until you catch the bobomb as the beginner & intermediate strat. Once you catch the bobomb and begin moving, jump and move the stick up. While in the air, go into mario cam and press C-Down, C-Left, and C-Left again, all before hitting the ground. Once you land, move the stick down breifly to line mario up perpendicular to the gate, press Z and A to backflip, and groundpound into the star.',
+      'Blast Away the Wall:\n\nBeginner - Press C-Down when loading into the stage and longjump to the tree, pressing C-Left once you get to it. Rollout and jumpdive up the ramp, and once you rollout again press C-Right and longjump holding straight. Once you land, press C-Right and hold a top-left angle, and then jumpdive up to the bridge. Once at the plank, jump and ledgrab as close to the left of the plank as possible. Then press A to get up, backflip, press C-Left twice, punch, walk straight down, do a slow-get-up, and hold straight down.\n\nIntermediate - The process for getting to the plank is the same as the beginner strat. Once on the plank, it is hard to see in the video, but there is a dark line that you want to line up marios right foot with and ledgegrab. Then press C-Right and C-Left while doing a slow-get-up from the ledge, and hold straight down.\n\nAdvanced - Do the same process as beginner and intermediate until the longjump towards the bridge. Once you land from the longjump, continue holding straight up and press C-Right. Before you lose all of your speed, jump onto the bridge and go into mario cam while still in the air. Once you land, press C-Down and hold an up-left knotched angle for roughly one-second (or until you are lined up with the third coin on the plank). Then go back to holding straight, delay jumping to the plank for as long as possible, strain right in the air to be roughly between the last two coins on the plank (but closer to the fourth coin), make sure you hold straight once you land, and finish by pressing C-Up and C-Right.',
+      'Fall onto the Caged Island:\n\nBeginner - Press C-Down as you enter the stage and longjump to the tree, pressing C-Left once you get there. Then do 3 jumpdives up the ramp, with the third jumping over the fence. Do a sideflip up to the platform, landing roughly where the coin is. Go neutral for a second, and then hold up so that mario performs a quick turn. Do a kick or a short jump, a short double jump, and then do the triple jump as close to the edge as you can, holding directly left the entire time you are in the air. Then kick into the star to collect it.\n\nIntermediate - This is the same as beginner except instead of kicking into the star, you groundpound. This will save time, but some may find it to be more annoying than what it is worth.\n\nAdvanced - This is the same process as beginner & intermediate until the third jumpdive. Try to be in the middle of the ramp following the second jumpdive, and then hold up left to perform the third jumpdive. Press C-Up while in the air, and then double jump and wallkick up to the platform. Once up there, rollout and maintain speed while pressing C-Right twice. Run left of the middle of the island (it will seem further left than you think you would need to go), then kick and double jump at the very edge. Go completely neutral right after the double jump, but start holding left as soon as you wallkick (try to aim for a 1st or 2nd frame wallkick). Then, at the peak of the wallkick, press C-Left, and groundpound under the star once you land.',
+      'Shoot into the Wild Blue:\n\nBeginner - Press C-Down as you enter the stage and dive toward the tree. Press C-Right and climb up the tree until your angle is good enough to jump and dive off. Once you land, do a dive, a short jump and dive in mid-air, and then dive down the ramp with a top-right angle. Press C-Left and do a sideflip up to the platform, and then dive into the star.\n\nIntermediate - Go into mario cam C-Down as soon as you enter the stage and hold neutral until the landing animation is finished, the camera will move into place for you to perform a buffered kick holding top-right and then sideflip into the tree. During the sideflip, reduce your speed before grabbing the tree in order to grab it landing in the right direction. The rest of the movement is the same as the beginner strategy. \n\nAdvanced - Go into mario cam C-Down as soon as you enter the stage, and then press C-Right twice. Perform the same sideflip grab as described in the intermediate strategy. After the dive and short jump dive, instead of holding a top-left angle to dive down the ramp, hold an angle closer to straight up. Press C-Left after the rollout, and then jump against the wall holding straight up. Right after the wallkick (which you should aim to be a 1st or 2nd frame), hold an angle between top-left and full left. Once you land on the platform, dive into the star.',
+      'Chip off Whomp’s Block:\n\nBeginner - Do the regular whomps movement to get up the ramp and over the fence, and then lonjump and run up the slope. Before you lose all your speed, turn left until you begin to slide and then jump and kick on to the platform. The rest is easy, as you can just groundpound through the whomp as shown in the video.\n\nIntermediate - Instead of doing the 3 jumpdives on the ramp, do one, then do a longjump, and then do a jumpdive as to clip the fence. This will allow you to double jump and then triple jump on to the slope. The rest of the movement is the same as the beginner strategy.\n\nAdvanced - This is the same as the intermediate strategy, except instead of sliding down the slope and doing the jump kick, jump before you begin sliding and dive on to the platform.',
+      'To the Top of the Fortress:\n\nBeginner & Intermediate - This is the same movement described in the Chip off Whomps Block Beginner strategy, however once you get on the platform, hold top-left until you have an angle to triple jump without getting blocked by the ceiling of a platform. After the triple jump, do a sideflip on the tower and rollout into the star.\n\nAdvanced - This is the same as the beginner & intermediate movement, except you do the movement described in the Chip off Whomps Block Intermediate strategy, with the triple jump rather than the longjump.',
+      'Li’l Penguin Lost:\n\nBeginner & Intermediate & Advanced - This star is very straightforward. Triple jump up to the penguin and hold left as soon as you land, and then go neutral before you grab to perform a running grab, then jump down the slope, following the analog inputs shown in the video on the way down. If you find it easier, you can opt to do this part in mario cam. Slide into the mama penguin, and collect the star.',
+      'Wall Kicks will Work:\n\nBeginner - Press C-Right, jump, dive, and rollout off of the edge, following the inputs shown in the video. Once you land, press R twice to correct the camera, move the stick just barely up, backflip, and start moving towards the wall after the peak of the jump. Spam a to get a wallkick, dive and rollout onto the platform, and then do a series of wallkicks to collect the star as shown in the video.\n\nIntermediate & Advanced - Do the same movement in the beginning as described in the beginner strategy. Once you land and reposition mario, do the backflip, and at the peak of the jump go in mario cam and move toward the wall. Get a full wallkick, press C-Left and C-Down, dive, and then continue pressing C-Left while following the stick inputs shown in the video. Rollout on the platform and then jumpdive into the star.',
+      'Bowser in the Dark World Red Coins:\n\nBeginner & Intermediate & Advanced - The video shows what is called Shig cycle. While there are faster cycles like Xiah and Tsuki, Shig is much easier to make consistent and only loses a little bit of time. I will not go into super great detail as I feel the video shows pretty clearly how to do it, but some general things to know include: If you accidently hit the fire, collect the coin closest to you first before going back for the other one. If you feel confident in getting the firsties at the end, go for them, as they are considerably faster than the alternative, just be sure not to hit A to early and bonk against the wall. Lastly, if you think you are too far away to do a single jump from the moving platforms to the final part of the level, you can do another longjump, it will just be a bit slower.',
+      'Bowser in the Dark World Fight:\n\nSpin bowser as little as possible and collect the key. There is no lag reduction needed on this fight.',
+      'In the Talons of the Big Bird:\n\nBeginner - Press C-Down and C-Left as you enter the stage, and do a buffered kick followed by a double jump and a dive while holding a top-left angle. Rollout, and do 2 dives to the pillar. Make sure to run up the right side of the pillar, otherwise the flyguy will charge you and be out of position. Longjump to the flyguy and fly into the bird. After the animation, press C-Right, R, and C-Down. Once you land, do a kick and longjump to the slope, and jump into the star.\n\nIntermediate & Advanced - This is the same as the beginner movement, except instead of the two dives toward the pillar, you can do a first frame jump after the rollout followed by dives to the pillar. This is hard to get consistent but does save a decent amount of time if done right. If you are really looking for a challenge, you could try learning flyguyless from tutorials on Youtube, but it really is not worth it unless you are going for a record.',
+      'Shining Atop the Pyramid:\n\nBeginner & Intermediate & Advanced - Press C-Down and C-Left once you enter the stage. Hold straight left, and do a jump and kick followed by a double and triple jump dive up the slope. Follow the stick inputs shown in the video, and do the triple jump up the pyramid.',
+      '8-Coin Puzzle with 15 Pieces:\n\nBeginner - Press C-Right when entering the stage, and then longjump a little to the right of fully straight. After getting burned, land on the wooden platform and lonjump to the red coins. While in the air, press C-Left. Dive to collect the first coin, and after the rollout, press C-Right. Now, just dive and collect all of the red coins.\n\nIntermediate - Press C-Right and hold a top-left angle. Longjump slightly after you start moving and then press C-Left. Holding straight, jump and do a delayed dive. Before you rollout, press C-Left. After the rollout, do a jumpdive holding straight, and rollout on the puzzle. Do a dive towards the red coins, and after the rollout press C-Right. Then just collect the coins as normal.\n\nAdvanced - This is the same as intermediate except instead of delaying the dive to the curved island, you do a full jump dive. Then, you have to do the next jump dive at a slight right angle and rollout on the puzzle. The rest is just collecting the coins as described in the beginner and intermediate strategies.',
+      'Red-Hot Log Rolling:\n\nBeginner - Press C-Left, R, and C-Down when entering the stage. Then do a buffered kick, double jump, and dive + rollout over the gap. Then hold an up-left angle and longjump, pressing R in midair. Once you land, longjump to the wooden platform, hold right, and jump. After the first jump, depending on your speed, you may have to go neutral for a very short amount of time during the second jump, as to not jump off the platform. Then, triple jump as close to the edge as you can while holding right. Not immediately, but very soon after starting the triple jump, switch to a bottom-right angle as shown in the video. Once you ledgegrab, press a to get up, and then press B twice to get off the fence and dive. Then do a longjump into the star. The final camera adjustment is personal preference. \n\nIntermediate & Advanced - This is the same as beginner except instead of longjumping to the wooden platform the triple jump is performed on, you jumpdive to it. The only thing to keep in mind is you will want to jumpdive far enough to the left so you have room to turn right and start the triple jump.',
+      'A-Maze-ing Emergency Exit:\n\nBeginner - Press C-Right as you enter the stage, and do 3 longjumps towards the door, pressing C-Down after the first longjump. Once you get to the door, hold A and an up-right angle, and then press B to perform a buffered kick. Continue holding A and do another buffered kick followed by a double jump and wallkick up onto the platform. Then, longjump holding a top-left angle to the other platform, and groundpound under the star.\n\nIntermediate & Advanced - Press C-Right as you enter the stage, and after 3 longjumps, right before you get to the door, press C-Right. This will move your camera after you complete the door opening animation, allowing you to hold a straight up angle. Once the door animation is done, do a jump and kick, followed by a triple jump. Try to make the triple jump close to the right edge of the platform, as shown in the video. Then, wallkick and immediately dive, and rollout into the star. Follow the stick inputs shown in the video. It will be faster with a lower-frame wallkick, but any wallkick should work.',
+      'Mips Clip:\n\nBeginner - & Intermediate - Do the jump and kick over the HMC entrance, and press C-Left before getting to the door to reduce lag. Hold an angle just barely to the right of the top-left notch, and longjump twice. If you want to play it safe, you can strain right during the second longjump to ensure that MIPS runs to the left. Do a dive down the hallway and try to line yourself up behind mips, then dive again and you should guarenteed grab him. Then, while holding MIPS, walk against the right edge of the door until MIPS\'s shadow disappears. At that point, press Z and turn back around. Pick up mips and jump backwards and you will make it through the door. It is the same process for the next door, as you just walk against the right edge until MIP\'s shadow disappears, and then you can press Z and longjump into the stage.\n\nAdvanced - Do the same movement to exit HMC and perform the first two longjumps as described in the beginner & intermediate strategy. Then, instead of diving and trying to line yourself up behind MIPS, dive to the right and run down the right hallway, ahead and to the right of MIPS. This grab is a lot about timing, so it will take some practice to get consistent, but typically after about a second after the rollout and you begin running down the hallway, you can turn to the left and punch grab MIPS. Perform the same clip as described in the beginner & intermediate strategy. After you are passed the first door, go into mario cam and C-Down. Once the star door is in view, you will want to line mario up with the left edge of the door, and then jump over the fence. While in the air, press C-Left twice, and briefly go neutral. After landing, hold straight up and do a small jump before jumping into the right edge of the door. As soon as you hit the edge, quickly press A twice and you will clip through the door. Then just dive and jumpdive into DDD.',
+      'Board Bowser’s Sub:\n\nBeginner & Intermediate - Press R twice before mario enters the water, and then hold C-Left while swimming with a top left angle, which will reduce lag. You can release the C-Left button at the time shown in the video. For swimming, you will optimally want your speed to be between 27 and 28, which you can check using the usamune rom (here it is shown as the star count). You can find what works for you, but I tend to do a 4 count in my head, pressing the buttons at the tempo shown in the video. After swimming up the top part of the tunnel, hold C-Left to reduce lag, and swim to the right side of the sub. Jump up on the fin, sideflip onto the sub, and then collect the star.\n\nAdvanced - Follow the same directions as the beginner & intermediate strategy until the top part of the tunnel. Instead of holding C-Left, hold C-Right, and swim to the left side of the sub. You can let go of C-Right about a second after exiting the tunnel. Before exiting the water, line yourself up with the light furthest left on the wall in front of you, as shown in the video. Get to the surface and continue swimming forward until the yellow bowser graphic underwater is out of view. Then switch to holding directly right. Right before you run into the sub, move the stick down so you jump out of the water. This may seem counterintuitive, but perform a short jump and dive to get up rather than a big jump and dive, as you will retain more speed. The final part is not done great in the video, but try to press C-Right a couple times when you get on the sub to reduce lag, as well as right before you collect the star. Jump and dive into the star to collect it.',
+      'Bowser in the Fire Sea:\n\nBeginner & Intermediate - Press C-Left, and once you land press R + C-Left + C-Down. Do two longjumps, and then reset your camera with R and C-Left. Do a jumpdive onto the platform and rollout onto the next. Press C-Up and longjump off the platform followed by a double jump. Press C-Right and continue holding straight to make it onto the metal platform. Switch to a top-right angle and do a dive and rollout over the gap. Press C-Left and do a longjump and wallkick to grab the pole. While climbing, move your camera so that you can do the triple jump up the elevator. Once up, press R twice to reset your camera, and do 2 longjumps followed by a Z-dive onto the metal platform. Do a jumpdive at the end of the metal platform, and then a dive onto the rising platform. Do a jumpdive on the yellow metal slope, turn around up the platform and do another jumpdive following the stick inputs shown in the video. Do a longjump slightly below directly right, press C-Right twice, and do a triple jump up to the concrete platform. Depending on how fast you got there, you can either do a dive as shown in the video, or you may need to do a wallkick and ledgegrab up. Turn your camera and press C-Up, and do some quick dives and rollouts up the slope, followed by a longjump to the left side of the stage. Go into mario cam to reduce lag until you get close to the end. Then press C-Down and either longjump or jumpdive into the lava, and bounce into the portal.\n\nAdvanced - This follows the same movement as the beginner & intermediate strategy, except you do pole glitch. To do pole glitch, once you are longjumping toward the platform with the one-up, press C-Right twice and C-Up once, and move your stick to the right and rotate it to an angle between right and down-right. The next inputs have to be dustless, meaning frame perfect. Do a dive and rollout after running off the platform onto the blue platform. Move your stick to the right notch, and run until you get to the crease between the two blue platforms. Then, do a jumpdive and rollout, and then immediately do a full single jump after landing. You can watch and slow down the video for reference. Some things to keep in mind with pole glitch: If you are bonking on the platform after jumping, it means your jumpdive was too early. If you go underneath the platform after jumping, it means your jumpdive was too late. The rest of the movement is very similar to the beginner & intermediate strategy. You can opt for doing ultimate cycle over left side, as there are great tutorials for it on Youtube.',
+      'Bowser in the Fire Sea Fight:\n\nThere are faster ways to spin bowser, but using the glitch shown in the video gives you plenty of time to build up enough speed to reach the bomb. During the key animation, go into mario cam and point the camera toward mario to reduce lag as shown in the video.',
+      'Bowser in the Sky:\n\nBeginner & Intermediate - Press C-Left twice when entering the stage, and then do two longjumps, straining right on the first one. Do a single jump straining right, and then double jump dive and rollout. After running off onto the tilting platform, do a jumpdive and then another jumpdive. Run up the slope, press C-Right twice, and triple jump up to the spinning platform. Lonjump twice to the tilting wooden platform, and double jump onto the elevator. Sideflip up to the next part and rollout. Do the triple jump up the green slope as shown in the video. If you mess up, you can hold A and press B to kick up the slope. Do a longjump to the area with the wooden blocks, and then do another longjump, ledgegrabing on the left side of the block as shown in the video. Press A to get up, punch, and do the triple jump wallkick as shown in the video. It is hard to explain in text, so just watch and slow down the video following along with the inputs to understand what is going on. If you struggle with this, you can just jump over the blocks and triple jump on to the pole, but avoid this if possible, as it is very slow. Get to the elevator, and if confident enough attempt to triple jump or double jump up to the second elevator as shown in the video. Longjump to the windy platform avoiding the goomba, and triple jump into the pipe. Stay on the right side of the windy platform, as the wind stops earlier than other parts of the platform.\n\nAdvanced - The beginning movement is about the same as the beginner & intermediate strategy, except you delay the second jumpdive, and do the triple jump to the spinning platform at an angle as shown in the video. This video does not get Manamo cycle, but if you do a speedkick over the gap before the final jumpdive and do the triple jump faster, you can make it to the elevator once cycle faster, however it may mess up your timing for the rest of the stage. After you get to the elevator, do a sideflip up and triple jump up the green slope. Jump dive to the area with the wooden blocks, and stay close to the right edge. The right side triple jump wallkick is difficult to explain in text, so it is best to just watch the video and inputs. It will take practice to get consistent, but is much faster than the left side alternative. On the final elevator, if you can get a triple jump or double jump and sideflip up to the second elevator, it is much faster. The final double jump and kick to the pipe is just an alternative movement to the standard triple jump, they are about the same speed, so just do which feels better.',
+      'Bowser in the Sky Fight:\n\nTry to not have to spin bowser more than twice per throw, though the most important thing is hitting the bomb, so if you struggle with this, take as many extra spins as needed. The video does not show this, but after the third throw you should reduce lag by going into mario cam and turning away from the explosion.',
+      'Watch for the Rolling Rocks:\n\nBeginner & Intermediate - Press C-Right and longjump 3 times to the door, pressing C-Down after the first longjump. After the door animation, do a buffered kick and longjump straight foward. Do a dive onto the green platform, and after the rollout do a lonjump, pressing R and C-Down midair. Do a dive and rollout, and then double jump and wallkick, dive, and rollout into the star following the stick inputs shown in the video.\n\nAdvanced - Do the same beginning movement as the beginner & intermediate strategy until you rollout on the green platform. Do a speedkick and jumpdive, followed by another dive and rollout. Then, do a speedkick and double jump wallkick, dive, and rollout into the star. This method is not much more difficult if you are comfortable with speedkicks, and if done well saves a decent amount of time.',
+      'LBLJ:\n\nBeginner & Intermediate - Longjump holding a bottom right angle, and dive with a top left angle. After the door animation, hold a top right angle until you run off the edge, and then switch to a top left angle, and jump. Press A to get up, hold top-right to give yourself space, breifly go neutral, and then hold a bottom left angle to longjump. After the longjump, move the stick to the top left, press C-Right twice, and start the blj. How long you should stay in the blj is dependant on how fast you can mash, but I find around 2 seconds to be best. To leave the blj, hold straight down, and then start pressing C-Right to move the camera around. Press A a couple times while behind the door to reduce your speed slightly, and press A again once one the stairs. After you get through the bowser door, you should punch so that you get caught on the trap door.\n\nAdvanced - This is the same as beginner & intermediate except you do the longjump immediately after getting up except for moving back to give yourself some more space. This is quite a bit faster, and if you get mario in the middle of the entrance to Dark World instead of the side like in the video, it will be even faster. The ending of the beginner and intermediate video shows a good example of this.',
+      'Inside the Ancient Pyramid:\n\nBeginner - This is very straightforward, just follow the beginning movement, get on the shell, and ride on top of all 4 pillars. The ending pyramid animation is very laggy, so go into mario cam to try to reduce it, as shown in the video. This method is much easier and safer than pillarless, but does lose about 10 seconds to it.\n\nIntermediate & Advanced - Press C-Down and do a buffered kick to the right toward the bobomb. Grab the bobomb, and holding a bottom right angle, jump and throw the bobomb. Move the stick down and regrab the bobomb, trying to get as big of a bomb as possible. Double jump and hold up left in the air during the second jump, and then dive holding bottom right back over the slope as shown in the video. Once you land, hold a bottom right angle until mario is off of the slope and touches the flat ground. Then, double jump and groundpound over the slope, trying to land on the flat, non-quicksand surface as shown in the video. Hold neutral throughout this entire process. Once you land, jump and groundpound again, followed by a double jump at the crease of the quicksand as shown in the video. You can groundpound onto the pyramid as shown in the video, or you can double jump which is harder but faster. Hold a top right angle as you kick up the pyramid, and press A to move up the pyramid. Groundpound once you are level with the star, or at the line shown in the video. You can longjump into the star, or double jump and dive. It is preference, as they are about the same speed.',
+      'Boil the Big Bully:\n\nBeginner & Intermediate - Longjump holding straight up, and briefly strain right after being burned. Longjump to the curved platform, and then jumpdive off of it to the spinning platform, and press C-Right while in the air. Longjump to the platform shooting fire, and then longjump and ledgegrab on the bully\'s platform. Try to keep to the right of the bully\'s platform to keep the bully from instantly charging you. Run to the bully, and sideflip over it and push it off the edge. Go land neutral and immediately turn around, and longjump before the star animation, and finish the last 2 longjumps to collect the star.\n\nAdvanced - Go into mario cam C-Down as soon as you enter the stage, and longjump holding directly up. Longjump again to the lower part of the curved platform, and do a Z-dive off of it as soon as you land. After rolling out on the spinning platform, press C-Right and longjump to the fire shooting platform. Try to longjump from the very edge of that platform to the bully\'s platform to avoid ledgegrabbing. Once there, hold an angle between up right and right, and groundpound facing the lava to push the bully off. Reset your camera by Pressing R and C-Left twice, and then run and longjump holding an angle just left of directly up, as shown in the video. Longjump into the star to collect it.',
+      'Hot-Foot-It into the Volcano:\n\nIntermediate & Advanced - This lava boost is called "pro boost," some find it to be the hardest variation, but I actually thought it was the easiest. Start by pressing C-Left, R, and C-Down. Do a buffered kick and double jump dive, and rollout over the gap. Then hold a up left angle and lonjump to the bridge. While in the air, switch to holding straight and press C-Right. Once you land, go back to a up left angle and longjump, pressing C-Right in the air again. Land right before the edge and longjump toward the volcano, and jumpdive in once you land. As soon as you enter the volcano, hold neutral and go into mario cam C-Down, and press C-Right. Stop holding neutral once mario\'s animation completes, and hold an angle just below full right. Do two buffered kicks, the second one over the gap, and then hold straight forward and longjump. Depending on your angle, you may have to strain right as shown in the video. You want to land on the white line under the lava, which is hard to see in the video, so you can also use the small rock as a point of reference. Right as you get burned, hold an up left angle and go into lakitu cam. About halfway through the first burn, smoothly switch your angle to be directly right. Once you get burned the second time, wait until you are even with the platform and press C-Left twice. After you land, press R twice to fix your camera, and sideflip onto the pole. Once you grab the pole, go into mario cam C-Down and press C-Right, jump off, dive and rollout, and groundpound under the star. There is faster ending movement where you don\'t grab the pole, but it is much higher risk for a decently little reward. If you are interested, I reccomend the tutorials on ukikipedia.',
+      'Swimming Beast in the Cavern:\n\nBeginner - Press C-Right once you enter the stage and do 3 longjumps holding directly forward, pressing C-Down after the first one. Once the door animation finishes, hold an up right angle, and after mario runs a bit, longjump and switch to holding straight. Dive and rollout holding an up right angle, and enter the door. Do a buffered kick onto the elevator, run off the right side and bonk into the wall, and then push against the wall underneath it. You must hold an up right angle once the elevator gets to you in order to clip. Then, just dive into the star to collect it.\n\nIntermediate - This has the same beginning movement as the beginner strat. Once you enter the door with the elevator, hold directly right, do a buffered kick, and sideflip against the back wall as shown in the video. Hold up until you are over the wall, and then switch to holding a down left angle to avoid the death/out of bounds zones. After about 2 seconds of that, you can hold an angle toward the star and dive into it to collect it.\n\nAdvanced - This is box jump, do the same beginning movement as the beginner & intermediate strategies, except go into mario cam C-Down before getting to the door. After the door animation, do a buffered kick holding up right, and then another buffered kick that will lead to a double jump wallkick onto the platform. While mario is still in the air or as he just lands on the platform, press C-Left twice. Run on the platform for a bit with an up angle, and then do a sideflip to the left. Some adjustments may need to be made before the triple jump as shown in the video to ensure you land on the box. Land on the box and do the triple jump, and hold neutral for about a second and a half after. During this time, you should press R twice to reset your camera. After about a second and a half, you can hold an angle toward the star and dive into it to collec it.',
+      'Elevator Tour in the Volcano:\n\nBeginner - Start by pressing C-Left, R, and C-Down. Do a buffered kick and double jump dive, and rollout over the gap. Then hold a up left angle and lonjump to the bridge. While in the air, switch to holding straight and press C-Right. Once you land, go back to a up left angle and longjump, pressing C-Right in the air again. Land right before the edge and longjump toward the volcano, and jumpdive in once you land. As soon as you enter the volcano, press C-Left and jump kick into the lava, and burn yourself onto the platform. Wait until the platform starts moving, and then do a triple jump holding directly right and dive into the pole. As soon as you grab the pole, go into mario cam C-Down. Climb the pole for a little bit, and then jump up onto the next platform. Do a sideflip in front of the pole, but reduce your speed before grabbing it to face the correct direction once you do, as shown in the video. As soon as you grab it, press C-Right, climb for just a little, and then jump and dive onto the last small step, and rollout into the star.',
+      'Bowser in the Dark World No Reds:\n\nBeginner - Holding right, do 3 longjumps and then hold Z to slide under the fire. After you are past the fire, release Z and do another longjump, straining slightly up. You will fall off the moving platform and be able to double jump on the next platform, followed by a triple jump. Wallkick onto the elevator, and then do a jump and a dive off of it. It helps to do the jump as soon as you land to avoid it getting eaten by the elevator. Longjump up the bridge, press C-Right, and then longjump to the green platform. Do 2 jumpdives, press C-Left, and longjump twice holding straight. Once you land, change to an up right angle, and jump dive. You could also just press C-Left to be able to hold straight during the jumpdive, but some may find it harder. During the rollout, press C-Left, and longjump holding up right to the moving platforms. Do a single jump off of the moving platforms, and longjump down the thin strip. Do two wallkicks, and triple jump up the slope, and dive into the tube.\n\nIntermediate - This is the same as the beginner strategy except you aim for firsties on the final wallkicks. Riskier, but saves a considerable amount of time. \n\nAdvanced - Do 3 longjumps holding right and then dive over the fire. Rollout and perform a speedkick to start a triple jump up the slope. Do a wallkick (should aim for a low frame wallkick), and quickly dive, aiming to land on the edge of the nearest platform. You will fall off, and then you should jumpdive up to the next platform. If you are late to the cycle, you should delay the dive after the double jump. If you are really late, you should just go on the top of the elevator. Do the movement described in the beginner strategy to get to the top of the green platform. During the rollout of the jumpdive, press C-Left and then go into mario cam C-Down (this is preference, some find it easier with other camera setups), longjump with an up right angle, and jumpdive once you reach the crease of the moving platforms. Halfway through the jumpdive, press R. Once you get on the tilting platforms, do a jumpdive, rollout, speedkick, double jump, dive and rollout, and then a speedkick triple jump up the slope, followed by a dive into the tube.',
+      'SBLJ:\n\nBeginner - Line mario up with his left leg fully in the top step. Then, go C-Down, hold Z, and very briefly hold an up right angle as shown in the video. Go back to holding directly up, and buffer the down direction by holding the stick down after releasing Z. Then, run directly back, longjump, and then go back to holding straight up. As soon as you land, hold an up left angle and blj. Once you have enough speed, which you will only know through practice, bring the stick back to the up angle and continue the blj against the star door. Once you clip through, you can either do the movement shown in the video which is easier, or you can wallkick against the wall you clipped through, dive, and then jumpdive into DDD.\n\nIntermediate & Advanced - This is the standard way to do the 1 star sblj. The launch into DDD shown in the video is very hard to get, so do not expect to get it consistently. Line mario up with his left leg fully in the top step. Then press C-Down, hold an angle just right of up, go neutral, and then run back to longjump. Once you longjump, go back to holding straight up, and hold up left once you start the blj. Once you have enough speed, which you will only know through practice, hold straight up and continue the blj against the star door. If you do not get the launch shown in the video, you can do the other two variations of the ending movement described in the beginner strategy.',
+      'Speed Kicks:\n\nSpeedkicks are used constantly throughout SM64 speedruns, as they conserve speed after movements like dives and longjumps. To perform them, continue holding A through the movement, contintue holding the angle until you land and run for as few frames as possible (be sure to not land holding netural, or you will lose all speed), then go neutrual or close to neutral (either work) and press B at the same time to perform a kick, followed by immediately returning the stick back to the desired angle. The more percise your excecution is, the more speed you will conserve. The video shows various parts throughout speedruns you will encounter speedkicks for reference. This will take time and practice to get consistent, and if you contintue to struggle, there are some great tutorials on YouTube.',
+      'Wallkicks:\n\nWallkicks are performed by jumping against a wall and pressing A. The outcome of the wallkick is dependant on what frame it was performed. First frame wallkicks increase your speed, while all other frames send mario at a fixed speed that decrease the later the frame. The video shows times in the speedrun where wallkicks are vital or save time for reference.',
+      'Backwards Long Jumps:\n\nBLJs are incredibly important and as simple as they sound. They are performed by longjumping and holding mario in the opposite direction of which he longjumped, and then pressing A repeatedly. There is a mashing pattern that will make them more consistent which can be found on Youtube, but as long as you mash fast enough, you will typically get them first try the majority of the time with practice.',
+      'Lag Reduction / Camera:\n\nLag Reduction on applies to runners who play on the N64, so emulator players do not have to worry about this. Many times when watching speedruns, you may be confused as to why the runner is using what looks like a strange/more difficult camera, and typically, the answer is because of lag. By holding specific camera inputs, you can keep things from being rendered onto the screen, thus reducing the amount of work the N64 must do. The video shows some places in the speedrun where lag reduction is critical, and if you want to learn about more ways and places to reduce lag, look on Youtube as there are great tutorials there.',
+      'Dust:\n\nDust is what happens after a non-first frame rollout after a dive or longjump following a longjump. However, first frame rollouts or longjumps do not display dust, and are typically faster. Some tricks require a series of inputs to be dustless, such as pole glitch, as shown in the video.',
+      'Z Dives:\n\nTo dive on certain slopes, due to a bug in the games code, you must hold Z while diving. This is necessary for certian tricks, such as the movement in firesea and the advanced strat for bullies in LLL, as shown in the video.'
+    ]
+    // Initialize the current video index
+    var category = decodeURIComponent(location.search).split('&category=')[1];
+    var ary = mechs;
+    if (category.includes('16 Star No LBLJ')) {
+      ary = noLBLJ;
+    }
+    else if (category.includes('16 Star LBLJ')) {
+      ary = LBLJ;
+    }
+    else if (category.includes('1 Star')) {
+      ary = oneStar;
+    }
+    var currentVideoIndex = ary[1].indexOf(altText);
+    var difficulty = decodeURIComponent(location.search).split('&diff=')[1];
+
+    function updateVideoDescription() {
+      var videoDescription = document.getElementById("videoDescription");
+      for (let i = 0; i < descriptions.length; i++) {
+        if (descriptions[i].includes(ary[1][currentVideoIndex])) {
+          var formattedDescription = descriptions[i].replace(/\n/g, '<br>');
+          videoDescription.innerHTML = formattedDescription;
+          break;
+        }
+      }
+
+    }
+
+    // Call the function on page load
+    window.addEventListener("DOMContentLoaded", function () {
+      updateVideoDescription();
+    });
+
+    function playPreviousVideo() {
+      // Decrease the current video index
+      if (ary[1][currentVideoIndex] !== 'Lakitu Skip' && ary[1][currentVideoIndex] !== 'Speed Kicks') {
+        currentVideoIndex--;
+      }
+      if (category.includes('16 Star No LBLJ') && decodeURIComponent(location.search).split('&diff=')[1] === 'Beginner' && (currentVideoIndex == 14 || currentVideoIndex == ary[0].length - 2)) {
+        if (currentVideoIndex == 14) {
+          currentVideoIndex = ary[0].length - 1;
+        }
+        else if (currentVideoIndex == ary[0].length - 2) {
+          currentVideoIndex = 13;
+        }
+      }
+      else if (category.includes('16 Star LBLJ') && decodeURIComponent(location.search).split('&diff=')[1] === 'Beginner' && (currentVideoIndex == 13 || currentVideoIndex == ary[0].length - 2)) {
+        if (currentVideoIndex == 13) {
+          currentVideoIndex = ary[0].length - 1;
+        }
+        else if (currentVideoIndex == ary[0].length - 2) {
+          currentVideoIndex = 12;
+        }
+      }
+
+      // Update the video source with the previous video source
+      var videoPlayer = document.getElementById('videoPlayer');
+      if (category.includes('Mechanics')) {
+        videoPlayer.src = 'videos/' + decodeURIComponent(location.search).split('&diff=')[1] + '/' + ary[0][currentVideoIndex] + '.mp4';
+      }
+      else {
+        videoPlayer.src = 'videos/' + decodeURIComponent(location.search).split('&diff=')[1] + '/' + ary[0][currentVideoIndex] + decodeURIComponent(location.search).split('&diff=')[1] + '.mp4';
+      }
+
+
+      var pageTitle = ary[1][currentVideoIndex]; // Get the title from the videoTitles array
+      document.title = pageTitle; // Set the page title
+      var titleElement = document.getElementById("videoTitle"); // Get the element by ID
+      titleElement.textContent = pageTitle; // Update the content of the element
+      updateVideoDescription();
+    }
+
+    function playNextVideo() {
+      // Increase the current video index
+      if (ary[1][currentVideoIndex] !== 'Bowser in the Sky Fight' && ary[1][currentVideoIndex] !== 'Z Dives') {
+        currentVideoIndex++;
+      }
+      if (category.includes('16 Star No LBLJ') && decodeURIComponent(location.search).split('&diff=')[1] === 'Beginner' && (currentVideoIndex == 14 || currentVideoIndex == ary[0].length)) {
+        if (currentVideoIndex == 14) {
+          currentVideoIndex = ary[0].length - 1;
+        }
+        else if (currentVideoIndex == ary[0].length) {
+          currentVideoIndex = 15;
+        }
+      }
+      else if (category.includes('16 Star LBLJ') && decodeURIComponent(location.search).split('&diff=')[1] === 'Beginner' && (currentVideoIndex == 13 || currentVideoIndex == ary[0].length)) {
+        if (currentVideoIndex == 13) {
+          currentVideoIndex = ary[0].length - 1;
+        }
+        else if (currentVideoIndex == ary[0].length) {
+          currentVideoIndex = 14;
+        }
+      }
+
+
+
+      // Update the video source with the next video source
+      var videoPlayer = document.getElementById('videoPlayer');
+      if (category.includes('Mechanics')) {
+        videoPlayer.src = 'videos/' + decodeURIComponent(location.search).split('&diff=')[1] + '/' + ary[0][currentVideoIndex] + '.mp4';
+      }
+      else {
+        videoPlayer.src = 'videos/' + decodeURIComponent(location.search).split('&diff=')[1] + '/' + ary[0][currentVideoIndex] + decodeURIComponent(location.search).split('&diff=')[1] + '.mp4';
+      }
+
+      var pageTitle = ary[1][currentVideoIndex]; // Get the title from the videoTitles array
+      document.title = pageTitle; // Set the page title
+      var titleElement = document.getElementById("videoTitle"); // Get the element by ID
+      titleElement.textContent = pageTitle; // Update the content of the element
+      updateVideoDescription();
+    }
+  </script>
+</body>
+
+</html>

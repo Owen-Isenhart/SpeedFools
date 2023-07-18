@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Super Mario 64 Speedrunning">
+  <meta name="keywords" content="SM64, Super Mario 64, Speedrun">
+  <title>SpeedFools - Tutorials</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/tutorialGrid.css">
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="tutorialGrid.html" class="index">Tutorials</a></li>
+        <li><a href="mechanics.html">Mechanics</a></li>
+        <li><a href="credit.html">Credit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Title -->
+  <h1 class="title">TUTORIALS</h1>
+
+  <!-- Horizontal list of buttons -->
+  <div class="horizontal-list">
+    <button onclick="changeImage(this)">1 Star</button>
+    <button onclick="changeImage(this)" class="selected">16 Star No LBLJ</button>
+    <button onclick="changeImage(this)">16 Star LBLJ</button>
+  </div>
+
+
+  <!-- Grid of images -->
+  <div class="image-container">
+    <div class="vertical-list">
+      <button onclick="changeImage(this)">Beginner</button>
+      <button onclick="changeImage(this)" class="selected">Intermediate</button>
+      <button onclick="changeImage(this)">Advanced</button>
+    </div>
+    <div class="image-grid">
+      <div class="image-item">
+        <img src="images/lakSkipImg.jpg" alt="Lakitu Skip" onclick="openImagePage(alt, 'lakituSkip')">
+        <div class="overlay"><p>Lakitu Skip</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/chainChompImg.jpg" alt="Behind Chain Chomp’s Gate" onclick="openImagePage(alt, 'chainChomp')">
+        <div class="overlay"><p>Behind Chain Chomp's Gate</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/cannonlessImg.jpg" alt="Blast Away the Wall" onclick="openImagePage(alt, 'cannonless')">
+        <div class="overlay"><p>Blast Away the Wall</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/owlessImg.jpg" alt="Fall onto the Caged Island" onclick="openImagePage(alt, 'owless')">
+        <div class="overlay"><p>Fall onto the Caged Island</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/wildBlueImg.jpg" alt="Shoot into the Wild Blue" onclick="openImagePage(alt, 'wildBlue')">
+        <div class="overlay"><p>Shoot into the Wild Blue</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/whompImg.jpg" alt="Chip off Whomp’s Block" onclick="openImagePage(alt, 'whomp')">
+        <div class="overlay"><p>Chip off Whomp's Block</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/towerImg.jpg" alt="To the Top of the Fortress" onclick="openImagePage(alt, 'tower')">
+        <div class="overlay"><p>To the Top of the Fortress</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/penguinImg.jpg" alt="Li’l Penguin Lost" onclick="openImagePage(alt, 'penguin')">
+        <div class="overlay"><p>Li'l Penguin Lost</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/wallkicksImg.jpg" alt="Wall Kicks will Work" onclick="openImagePage(alt, 'wallkicks')">
+        <div class="overlay"><p>Wall Kicks will Work</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/dwImg.jpg" alt="Bowser in the Dark World Red Coins" onclick="openImagePage(alt, 'dwReds')">
+        <div class="overlay"><p>Bowser in the Dark World Red Coins</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/dwFight.jpg" alt="Bowser in the Dark World Fight" onclick="openImagePage(alt, 'bowser1')">
+        <div class="overlay"><p>Bowser in the Dark World Fight</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/talonImg.jpg" alt="In the Talons of the Big Bird" onclick="openImagePage(alt, 'talon')">
+        <div class="overlay"><p>In the Talons of the Big Bird</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/pyramidImg.jpg" alt="Shining Atop the Pyramid" onclick="openImagePage(alt, 'pyramid')">
+        <div class="overlay"><p>Shining Atop the Pyramid</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/lllRedsImg.jpg" alt="8-Coin Puzzle with 15 Pieces" onclick="openImagePage(alt, 'lllReds')">
+        <div class="overlay"><p>8-Coin Puzzle with 15 Pieces</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/logImg.jpg" alt="Red-Hot Log Rolling" onclick="openImagePage(alt, 'logless')">
+        <div class="overlay"><p>Red-Hot Log Rolling</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/hmcImg.jpg" alt="A-Maze-ing Emergency Exit" onclick="openImagePage(alt, 'hmc')">
+        <div class="overlay"><p>A-Maze-ing Emergency Exit</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/mipsImg.jpg" alt="Mips Clip" onclick="openImagePage(alt, 'mips')">
+        <div class="overlay"><p>Mips Clip</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/dddImg.jpg" alt="Board Bowser’s Sub" onclick="openImagePage(alt, 'ddd')">
+        <div class="overlay"><p>Board Bowser's Sub</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/fireseaImg.jpg" alt="Bowser in the Fire Sea" onclick="openImagePage(alt, 'firesea')">
+        <div class="overlay"><p>Bowser in the Fire Sea</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/fireseaFightImg.jpg" alt="Bowser in the Fire Sea Fight"
+          onclick="openImagePage(alt, 'bowser2')">
+        <div class="overlay"><p>Bowser in the Fire Sea Fight</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/bitsImg.jpg" alt="Bowser in the Sky" onclick="openImagePage(alt, 'bits')">
+        <div class="overlay"><p>Bowser in the Sky</p></div>
+      </div>
+      <div class="image-item">
+        <img src="images/bitsFightImg.jpg" alt="Bowser in the Sky Fight" onclick="openImagePage(alt, 'bowser3')">
+        <div class="overlay"><p>Bowser in the Sky Fight</p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Assuming you have an array of video sources
+    var noLBLJ = [
+      [
+        'lakituSkip',
+        'chainChomp',
+        'cannonless',
+        'owless',
+        'wildBlue',
+        'whomp',
+        'tower',
+        'penguin',
+        'wallkicks',
+        'dwReds',
+        'bowser1',
+        'talon',
+        'pyramid',
+        'lllReds',
+        'logless',
+        'hmc',
+        'mips',
+        'ddd',
+        'firesea',
+        'bowser2',
+        'bits',
+        'bowser3',
+        'rocks'
+      ],
+      [
+        'Lakitu Skip',
+        'Behind Chain Chomp’s Gate',
+        'Blast Away the Wall',
+        'Fall onto the Caged Island',
+        'Shoot into the Wild Blue',
+        'Chip off Whomp’s Block',
+        'To the Top of the Fortress',
+        'Li’l Penguin Lost',
+        'Wall Kicks will Work',
+        'Bowser in the Dark World Red Coins',
+        'Bowser in the Dark World Fight',
+        'In the Talons of the Big Bird',
+        'Shining Atop the Pyramid',
+        '8-Coin Puzzle with 15 Pieces',
+        'Red-Hot Log Rolling',
+        'A-Maze-ing Emergency Exit',
+        'Mips Clip',
+        'Board Bowser’s Sub',
+        'Bowser in the Fire Sea',
+        'Bowser in the Fire Sea Fight',
+        'Bowser in the Sky',
+        'Bowser in the Sky Fight',
+        'Watch for the Rolling Rocks'
+      ],
+      [
+        'images/lakSkipImg.jpg',
+        'images/chainChompImg.jpg',
+        'images/cannonlessImg.jpg',
+        'images/owlessImg.jpg',
+        'images/wildBlueImg.jpg',
+        'images/whompImg.jpg',
+        'images/towerImg.jpg',
+        'images/penguinImg.jpg',
+        'images/wallkicksImg.jpg',
+        'images/dwImg.jpg',
+        'images/dwFight.jpg',
+        'images/talonImg.jpg',
+        'images/pyramidImg.jpg',
+        'images/lllRedsImg.jpg',
+        'images/logImg.jpg',
+        'images/hmcImg.jpg',
+        'images/mipsImg.jpg',
+        'images/dddImg.jpg',
+        'images/fireseaImg.jpg',
+        'images/fireseaFightImg.jpg',
+        'images/bitsImg.jpg',
+        'images/bitsFightImg.jpg',
+        'images/hmcRocks.jpg'
+      ]
+    ];
+    var LBLJ = [
+      [
+        'lakituSkip',
+        'lblj',
+        'dwReds',
+        'bowser1',
+        'cannonless',
+        'owless',
+        'wildBlue',
+        'pillarless',
+        'talon',
+        'pyramid',
+        'lllReds',
+        'logless',
+        'bully',
+        'lavaboost',
+        'beast',
+        'rocks',
+        'hmc',
+        'mips',
+        'ddd',
+        'firesea',
+        'bowser2',
+        'bits',
+        'bowser3',
+        'elevator'
+      ],
+      [
+        'Lakitu Skip',
+        'LBLJ',
+        'Bowser in the Dark World Red Coins',
+        'Bowser in the Dark World Fight',
+        'Blast Away the Wall',
+        'Fall onto the Caged Island',
+        'Shoot into the Wild Blue',
+        'Inside the Ancient Pyramid',
+        'In the Talons of the Big Bird',
+        'Shining Atop the Pyramid',
+        '8-Coin Puzzle with 15 Pieces',
+        'Red-Hot Log Rolling',
+        'Boil the Big Bully',
+        'Hot-Foot-It into the Volcano',
+        'Swimming Beast in the Cavern',
+        'Watch for Rolling Rocks',
+        'A-Maze-ing Emergency Exit',
+        'MIPS Clip',
+        'Board Bowser’s Sub',
+        'Bowser in the Fire Sea',
+        'Bowser in the Fire Sea Fight',
+        'Bowser in the Sky',
+        'Bowser in the Sky Fight',
+        'Elevator Tour in the Volcano'
+      ],
+      [
+        'images/lakSkipImg.jpg',
+        'images/lobby.jpg',
+        'images/dwImg.jpg',
+        'images/dwFight.jpg',
+        'images/cannonlessImg.jpg',
+        'images/owlessImg.jpg',
+        'images/wildBlueImg.jpg',
+        'images/pillarless.jpg',
+        'images/talonImg.jpg',
+        'images/pyramidImg.jpg',
+        'images/lllRedsImg.jpg',
+        'images/logImg.jpg',
+        'images/bully.jpg',
+        'images/lavaboost.jpg',
+        'images/beast.jpg',
+        'images/hmcRocks.jpg',
+        'images/hmcImg.jpg',
+        'images/mipsImg.jpg',
+        'images/dddImg.jpg',
+        'images/fireseaImg.jpg',
+        'images/fireseaFightImg.jpg',
+        'images/bitsImg.jpg',
+        'images/bitsFightImg.jpg',
+        'images/elevator.jpg'
+      ]
+    ];
+    var oneStar = [
+      [
+        'lakituSkip',
+        'lblj',
+        'dwNoReds',
+        'bowser1',
+        'sblj',
+        'ddd',
+        'firesea',
+        'bowser2',
+        'bits',
+        'bowser3'
+      ],
+      [
+        'Lakitu Skip',
+        'LBLJ',
+        'Bowser in the Dark World No Reds',
+        'Bowser in the Dark World Fight',
+        'SBLJ',
+        'Board Bowser’s Sub',
+        'Bowser in the Fire Sea',
+        'Bowser in the Fire Sea Fight',
+        'Bowser in the Sky',
+        'Bowser in the Sky Fight'
+      ],
+      [
+        'images/lakSkipImg.jpg',
+        'images/lobby.jpg',
+        'images/dwImg.jpg',
+        'images/dwFight.jpg',
+        'images/sblj.jpg',
+        'images/dddImg.jpg',
+        'images/fireseaImg.jpg',
+        'images/fireseaFightImg.jpg',
+        'images/bitsImg.jpg',
+        'images/bitsFightImg.jpg'
+      ]
+    ];
+    window.onload = function () {
+      // Get the horizontal list buttons
+      var horizontalButtons = document.querySelectorAll('.horizontal-list button');
+      var verticalButtons = document.querySelectorAll(".vertical-list button");
+
+      // Find the button with the longest text
+      var longestButtonWidthH = 0;
+      var longestButtonWidthV = 0;
+      horizontalButtons.forEach(function (button) {
+        longestButtonWidthH = Math.max(longestButtonWidthH, button.scrollWidth);
+      });
+      verticalButtons.forEach(function (button) {
+        longestButtonWidthV = Math.max(longestButtonWidthV, button.scrollWidth);
+      });
+
+      // Set the width of all buttons to match the width of the longest button
+      horizontalButtons.forEach(function (button) {
+        button.style.width = longestButtonWidthH + 'px';
+      });
+      verticalButtons.forEach(function (button) {
+        button.style.width = longestButtonWidthV + 'px';
+      });
+    };
+
+    function openImagePage(alt, video) {
+      var difficulty = document.querySelector('.vertical-list button.selected').textContent;
+      var category = document.querySelector('.horizontal-list button.selected').textContent;
+      var url = 'page.html?alt=' + encodeURIComponent(alt) + '&category=' + encodeURIComponent(category) + '&video=' + encodeURIComponent(video) + '&diff=' + encodeURIComponent(difficulty);
+      window.location.href = url;
+    }
+
+
+
+
+
+    function changeImage(button) {
+    var horizontalButtons = document.querySelectorAll(".horizontal-list button");
+    var verticalButtons = document.querySelectorAll(".vertical-list button");
+
+    if (button.parentNode.classList.contains("horizontal-list")) {
+      // Horizontal button is clicked
+      horizontalButtons.forEach(function (btn) {
+        // Remove the 'selected' class from other horizontal buttons
+        if (btn !== button) {
+          btn.classList.remove("selected");
+        }
+      });
+    } else if (button.parentNode.classList.contains("vertical-list")) {
+      // Vertical button is clicked
+      verticalButtons.forEach(function (btn) {
+        // Remove the 'selected' class from other vertical buttons
+        if (btn !== button) {
+          btn.classList.remove("selected");
+        }
+      });
+    }
+
+    // Add the 'selected' class to the clicked button
+    button.classList.add("selected");
+
+    var imageElements = document.querySelectorAll(".image-grid img");
+    var imageContainer = document.querySelector('.image-grid');
+    var selectedCategory = document.querySelector('.horizontal-list button.selected');
+    var selectedDifficulty = document.querySelector('.vertical-list button.selected');
+
+    // Create a new image item with its child image and overlay
+    function createImageItem(imageSrc, imageAlt, video) {
+      const imageItem = document.createElement('div');
+      imageItem.classList.add('image-item');
+
+      const image = document.createElement('img');
+      image.src = imageSrc;
+      image.alt = imageAlt;
+      image.style.filter = 'grayscale(100%) blur(1px)';
+      image.style.transition = 'filter 1.2s ease, transform 0.3s ease';
+      image.style.maxWidth = '30%'; // Updated property name
+      image.style.minWidth = '100%'; // Updated property name
+      image.style.height = 'auto'; // Updated property name
+      image.style.marginBottom = '0px'; // Updated property name
+      image.style.cursor = 'pointer'; // Updated property name
+      image.style.position = 'relative'; // Updated property name
+
+      // Add event listener to open the image page
+      image.addEventListener('click', function () {
+        openImagePage(imageAlt, video);
+      });
+
+      const overlay = document.createElement('div');
+      overlay.classList.add('overlay');
+
+      imageItem.appendChild(image);
+      imageItem.appendChild(overlay);
+
+      return imageItem;
+    }
+
+    var newImageElements = []; // Array to store the new image elements
+
+    // Determine the selected category
+    if (selectedCategory.textContent === '16 Star No LBLJ') {
+      var maxElements = noLBLJ[1].length - 1; // Maximum number of elements in the grid
+
+      // Create new image elements based on the selected category and difficulty
+      for (var i = 0; i < maxElements; i++) {
+        if (selectedDifficulty.textContent === 'Beginner' && i === 14) {
+          // Special case for "Beginner" difficulty
+          var newImageElement = createImageItem(noLBLJ[2][22], noLBLJ[1][22], noLBLJ[0][22]);
+        } else {
+          var newImageElement = createImageItem(noLBLJ[2][i], noLBLJ[1][i], noLBLJ[0][i]);
+        }
+
+        newImageElements.push(newImageElement); // Add the new image item to the array
+      }
+    } else if (selectedCategory.textContent === '16 Star LBLJ') {
+      var maxElements = LBLJ[1].length - 1; // Maximum number of elements in the grid
+
+      // Create new image elements based on the selected category and difficulty
+      for (var i = 0; i < maxElements; i++) {
+        if (selectedDifficulty.textContent === 'Beginner' && i === 13) {
+          // Special case for "Beginner" difficulty
+          var newImageElement = createImageItem(LBLJ[2][23], LBLJ[1][23], LBLJ[0][23]);
+        } else {
+          var newImageElement = createImageItem(LBLJ[2][i], LBLJ[1][i], LBLJ[0][i]);
+        }
+
+        newImageElements.push(newImageElement); // Add the new image item to the array
+      }
+    } else {
+      var maxElements = oneStar[1].length; // Maximum number of elements in the grid
+
+      // Create new image elements based on the selected category and difficulty
+      for (var i = 0; i < maxElements; i++) {
+        var newImageElement = createImageItem(oneStar[2][i], oneStar[1][i], oneStar[0][i]);
+
+        newImageElements.push(newImageElement); // Add the new image item to the array
+      }
+    }
+
+    // Remove all existing image-item divs from the container
+    var existingImageItems = imageContainer.querySelectorAll('.image-item');
+    existingImageItems.forEach(function (imageItem) {
+      imageContainer.removeChild(imageItem);
+    });
+
+    // Add the new image items to the container
+  newImageElements.forEach(function (imageElement, index) {
+    imageContainer.appendChild(imageElement);
+
+    // Apply transition to reset the grayscale and blur filters
+    setTimeout(function () {
+      imageElement.querySelector('img').style.filter = 'grayscale(0%) blur(0px)';
+    }, 0);
+
+    var altText = imageElement.querySelector('img').alt;
+    var overlayText = document.createElement('p');
+    overlayText.textContent = altText;
+    imageElement.querySelector('.overlay').appendChild(overlayText);
+  });
+  }
+  </script>
+</body>
+
+</html>

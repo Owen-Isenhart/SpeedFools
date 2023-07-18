@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Super Mario 64 Speedrunning">
+  <meta name="keywords" content="SM64, Super Mario 64, Speedrun">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/mechanics.css">
+  <title>SpeedFools - Mechanics</title>
+
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="tutorialGrid.html">Tutorials</a></li>
+        <li><a href="mechanics.html" class="index">Mechanics</a></li>
+        <li><a href="credit.html">Credit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Title -->
+  <h1 class="title">MECHANICS</h1>
+
+  <!-- Horizontal list of buttons -->
+
+
+
+  <!-- Grid of images -->
+  <div class="image-container">
+
+    <div class="image-grid">
+      <div class="image-item">
+        <img src="images/speedkickScreenshot.png" alt="Speed Kicks" onclick="openImagePage(alt, 'speedkicks')">
+        <div class="overlay">Speed Kicks</div>
+      </div>
+      <div class="image-item">
+        <img src="images/wallkickScreenshot.png" alt="Wallkicks" onclick="openImagePage(alt, 'wallkicks')">
+        <div class="overlay">Wallkicks</div>
+      </div>
+      <div class="image-item">
+        <img src="images/bljScreenshot.png" alt="Backwards Long Jumps" onclick="openImagePage(alt, 'bljs')">
+        <div class="overlay">BLJs</div>
+      </div>
+      <div class="image-item">
+        <img src="images/lagScreenshot.png" alt="Lag Reduction / Camera" onclick="openImagePage(alt, 'lagReduction')">
+        <div class="overlay">Lag Reduction</div>
+      </div>
+      <div class="image-item">
+        <img src="images/dustScreenshot.png" alt="Dust" onclick="openImagePage(alt, 'dust')">
+        <div class="overlay">Dust</div>
+      </div>
+      <div class="image-item">
+        <img src="images/zDiveScreenshot.png" alt="Z Dives" onclick="openImagePage(alt, 'zDive')">
+        <div class="overlay">Z-Dives</div>
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+
+  <script>
+    // Assuming you have an array of video sources
+
+    var mechs = [
+      [
+        'speedkicks',
+        'wallkicks',
+        'bljs',
+        'lagReduction',
+        'dust',
+        'zDive'
+      ],
+      [
+        'Speed Kicks',
+        'Wallkicks',
+        'Backwards Long Jumps',
+        'Lag Reduction / Camera',
+        'Dust',
+        'Z Dives'
+      ],
+      [
+        'images/speedKickScreenshot.png',
+        'images/wallkickScreenshot.png',
+        'images/bljScreenshot.png',
+        'images/lagScreenshot.png',
+        'images/dustScreenshot.png',
+        'images/zDiveScreenshot.png'
+      ]
+    ];
+
+
+    function openImagePage(alt, video) {
+      var difficulty = 'Mechanics';
+      var category = 'Mechanics';
+      var url = 'page.html?alt=' + encodeURIComponent(alt) + '&category=' + encodeURIComponent(category) + '&video=' + encodeURIComponent(video) + '&diff=' + encodeURIComponent(difficulty);
+      window.location.href = url;
+    }
+  </script>
+</body>
+
+</html>

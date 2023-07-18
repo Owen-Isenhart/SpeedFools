@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Super Mario 64 Speedrunning">
+  <meta name="keywords" content="SM64, Super Mario 64, Speedrun">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/credit.css">
+  <title>SpeedFools - Credit</title>
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="tutorialGrid.html">Tutorials</a></li>
+        <li><a href="mechanics.html">Mechanics</a></li>
+        <li><a href="credit.html" class="index">Credit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>CREDIT</h1>
+  <div class="container">
+    <div class="image-container">
+      <img src="images/pfp.PNG" alt="Image">
+      <div class="popup">
+        <div class="links-container">
+          <a href="https://github.com/Owen-Isenhart" target="_blank" rel="noopener noreferrer">
+            <img src="images/github-mark-white.png" alt="Github">
+            Github
+          </a>
+          <a href="https://www.youtube.com/channel/UCixHWioDf5PXTVQVwejNdUg" target="_blank" rel="noopener noreferrer">
+            <img src="images/youtubelogo.png" alt="YouTube">
+            YouTube
+          </a>
+          <a href="discordapp.com/users/789892916772208674" target="_blank" rel="noopener noreferrer">
+            <img src="images/discordLogo.png" alt="Discord">
+            Discord
+          </a>
+          <a href="https://oxef.itch.io/" target="_blank" rel="noopener noreferrer">
+            <img src="images/itchLogo.png" alt="Itch">
+            Itchio
+          </a>
+        </div>
+
+      </div>
+    </div>
+    <div class="description">
+      <h2>oxef64</h2>
+      <p>
+        I am the sole creator of this website, but if you wish to make a contribution, you can complete <a
+          href="https://forms.gle/d7YacuLzQg2Ub5wb9" target="_blank" rel="noopener noreferrer">this</a> form and I will
+        consider your addition.
+        <br><br>
+        All code is mine and gameplay is mine. A link to the GitHub repository can be found <a
+          href="https://github.com/Owen-Isenhart/SpeedFools" target="_blank" rel="noopener noreferrer">here</a>, and
+        the gameplay videos can be found on my YouTube channel <a
+          href="https://www.youtube.com/channel/UCixHWioDf5PXTVQVwejNdUg" target="_blank" rel="noopener noreferrer">here</a>.
+        <br><br>
+        The backgrounds for all pages are alterations of an <a
+          href="https://www.freepik.com/free-vector/wavy-background-with-copy-space_15186165.htm?query=wireframe&collectionId=2180352&page=3&position=18&from_view=collections"
+          target="_blank" rel="noopener noreferrer">image by pikisuperstar</a> on Freepik,
+        with the exception of the home page which is an image by <a
+          href="https://www.freepik.com/free-vector/flat-abstract-wireframe-background_15441828.htm#query=modern%20graphic&position=49&from_view=keyword&track=ais"
+          target="_blank" rel="noopener noreferrer">Freepik</a>.
+        <br><br>
+        All images found in the tutorial page come from <a href="https://ukikipedia.net/wiki/Main_Page" target="_blank"
+          rel="noopener noreferrer">ukikipedia</a> with the exception of the following: <a href="https://www.neogaf.com/threads/battling-bowser-in-3d-mario-which-fight-is-your-favorite-3d-world-spoilers.726199/" target="_blank" rel="noopener noreferrer">bowser 1, 2, and 3 fight stages</a>, <a href="https://sm64-conspiracies.fandom.com/wiki/Princess_Peach's_Castle/First_Floor" target="_blank" rel="noopener noreferrer">lblj / inside the castle</a>, and <a href="https://fantendo.fandom.com/wiki/MIPS" target="_blank" rel="noopener noreferrer">MIPS</a>.
+
+      </p>
+
+    </div>
+  </div>
+
+  <script>
+    const imageContainer = document.querySelector('.image-container');
+    const popup = document.querySelector('.popup');
+
+    imageContainer.addEventListener('mouseenter', () => {
+      popup.style.transform = 'scale(1) rotate(1.5deg)';
+      popup.style.boxShadow = '0 0 3vw rgba(0, 0, 0, 1)';
+      popup.style.borderRadius = '5%';
+    });
+
+    imageContainer.addEventListener('mouseleave', () => {
+      popup.style.transform = '';
+      popup.style.boxShadow = '';
+      popup.style.borderRadius = '';
+    });
+  </script>
+</body>
+
+</html>
