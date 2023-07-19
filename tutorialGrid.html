@@ -337,7 +337,8 @@
     ];
     window.onload = function () {
       // Get the horizontal list buttons
-      var horizontalButtons = document.querySelectorAll('.horizontal-list button');
+      if(!(/iPhone|iPad|iPod|Android|webOS|BlackBerry|Opera Mini|IEMobile/i.test(navigator.userAgent) )){
+        var horizontalButtons = document.querySelectorAll('.horizontal-list button');
       var verticalButtons = document.querySelectorAll(".vertical-list button");
 
       // Find the button with the longest text
@@ -357,6 +358,8 @@
       verticalButtons.forEach(function (button) {
         button.style.width = longestButtonWidthV + 'px';
       });
+      }
+      
     };
 
     function openImagePage(alt, video) {
