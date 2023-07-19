@@ -237,6 +237,7 @@ nav .index{
       text-decoration: none;
       font-weight: bold;
       transition: 0.5s;
+      vertical-align: center;
     }
   
   }
